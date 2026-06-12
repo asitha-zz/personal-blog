@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asitha_zz</title>
+    <!-- Font Awesome Link එක අපිට දැන් අවශ්‍ය නැහැ -->
+    <style>
+        /* CSS Reset & Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Layout with Background Image */
+        header {
+            background: linear-gradient(rgba(26, 37, 47, 0.75), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Logo Area with Image Styling */
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00adb5;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Icon එකයි Text එකයි අතර පරතරය */
+        }
+
+        /* PNG Icon එකේ Style එක */
+        header .logo img {
+            width: 40px;  /* Icon එකේ width එක - ඔයාට ඕන විදිහට වෙනස් කරන්න */
+            height: 40px; /* Icon එකේ height එක - width එකටම සමාන කරන්න */
+            border-radius: 50%; /* Icon එක රවුම් කරන්න ඕන නම් විතරක් මේක තියාගන්න */
+            object-fit: cover; /* පින්තූරය ඇදෙන්නේ නැතුව ලස්සනට පේන්න */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        nav ul li a:hover {
+            color: #00adb5;
+        }
+
+        /* Hero Section (About Me Profile) */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #00adb5;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+        }
+
+        /* Main Content Layout */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Blog Posts Section */
+        .main-content h2 {
+            margin-bottom: 1.5rem;
+            color: #1a252f;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #00adb5;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-details {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            color: #1a252f;
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            display: block;
+            font-weight: 600;
+        }
+
+        .blog-title:hover {
+            color: #00adb5;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar Section */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            color: #1a252f;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .categories-list a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .categories-list a:hover {
+            color: #00adb5;
+            padding-left: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #aaa;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 1.5rem 5%;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <!-- මෙතන තමයි ඔයාගේ Desktop Icon එක එකතු කරලා තියෙන්නේ -->
+        <div class="logo">
+            <!-- ⬇️ ⬇️ ⬇️ පල්ලෙහා පේළියේ MY_DESKTOP_ICON.png වෙනුවට ඔයාගේ icon එකේ නම දාන්න ⬇️ ⬇️ ⬇️ -->
+            <img src="Gemini_Generated_Image_5mrf5e5mrf5e5mrf.png" alt="My Logo Icon"> 
+            Sehan Asitha
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://asiisoftnote.blogspot.com">Blogs</a></li>
+                <li><a href="aboutme.html">About</a></li>
+                <li><a href="about.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section / Profile Brief -->
+    <section class="hero">
+        <img src="Gemini_Generated_Image_5mrf5e5mrf5e5mrf.png" alt="My Profile Photo" class="profile-img">
+        <h1>Hello, I'm Asitha</h1>
+        <p>Welcome to my personal space. Here I share my thoughts, creative works, and tech experiences. Follow along my journey!</p>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        
+        
+
+        <!-- ⬇️ ඔයාගේ index.html එකේ වෙනස් කරන්න ඕන කොටස විතරයි මේ තියෙන්නේ ⬇️ -->
+        <main class="main-content">
+            <h2>Recent Articles</h2>
+
+            <!-- Blog Post 1: Content Creation ගැන -->
+            <article class="blog-card">
+                <!-- ඔයාගේ පළවෙනි පෝස්ට් එකට ගැලපෙන ඉමේජ් එකක් මෙතන src එකට දාන්න -->
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="Content Creation" class="blog-img">
+                <div class="blog-details">
+                    <div class="blog-meta">June 13, 2026 | 🎬 Content Creation</div>
+                    <a href="post1.html" class="blog-title">The Art of Storytelling in Short-Form Video Content</a>
+                    <p class="blog-excerpt">වර්තමාන ඩිජිටල් ලෝකයේ මිනිසුන්ගේ අවධානය දිනාගන්න කෙටි වීඩියෝ (Shorts) වලට තියෙන්නේ පුදුමාකාර හැකියාවක්. මේ ලිපියෙන් මම කතා කරන්නේ කොහොමද නිවැරදිව ප්‍රේක්ෂකයින් ආකර්ෂණය කරගන්නා විදිහේ නිර්මාණශීලී වීඩියෝවක් සහ Graphic Content එකක් මුල ඉඳන්ම ප්ලෑන් කරන්නේ කියලා...</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 2: Tech Specs ගැන -->
+            <article class="blog-card">
+                <!-- ඔයාගේ දෙවැනි පෝස්ට් එකට ගැලපෙන ඉමේජ් එකක් මෙතන src එකට දාන්න -->
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Mobile Technology" class="blog-img">
+                <div class="blog-details">
+                    <div class="blog-meta">June 08, 2026 | 💻 Technology</div>
+                    <a href="post2.html" class="blog-title">What to Look For in a Modern Smartphone: Hidden Specs</a>
+                    <p class="blog-excerpt">අද වෙනකොට ස්මාර්ට්ෆෝන් එකක් ගන්නකොට අපි බලන්නේ Display එක සහ RAM එක විතරක් නෙවෙයි. Processor එකේ efficiency එක, Battery life එක වගේම IR Sensors වැනි එදිනෙදා ජීවිතයට වැදගත් වෙන පුංචි දේවල් පවා දුරකථනයක ක්‍රියාකාරීත්වයට බලපාන විදිහ මේ ලිපියෙන් සරලව පැහැදිලි කරනවා...</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 3: Lifestyle/Routine ගැන -->
+            <article class="blog-card">
+                <!-- ඔයාගේ තුන්වැනි පෝස්ට් එකට ගැලපෙන ඉමේජ් එකක් මෙතන src එකට දාන්න -->
+                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Consistency & Productivity" class="blog-img">
+                <div class="blog-details">
+                    <div class="blog-meta">June 02, 2026 | 🏃‍♂️ Fitness & Lifestyle</div>
+                   <a href="post3.html" class="blog-title">Building a Powerful Morning Routine for Creative Success</a>
+                    <p class="blog-excerpt">ඕනෑම සාර්ථක නිර්මාණකරුවෙකුගේ රහස තියෙන්නේ ඔවුන්ගේ දෛනික පුරුදු ඇතුලේ. උදෑසන 5 AM වැනි වේලාවක අවදි වෙලා කරන සරල ශාරීරික ව්‍යායාම සහ දවස ප්ලෑන් කරගැනීම මඟින් දවස පුරාම අපේ මනස සහ ශරීරය කොතරම් ප්‍රබෝධමත්ව තියාගන්න පුළුවන්ද කියා මේ ලිපියෙන් බලමු...</p>
+                </div>
+            </article>
+
+        </main>
+        <!-- ⬆️ වෙනස් කරන්න ඕන කොටස අවසානයි ⬆️ -->
+
+        <!-- Sidebar Components -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul class="categories-list">
+                <li><a href="#">🎬 Content Creation</a></li>
+                <li><a href="#">🎨 Art & Design</a></li>
+                <li><a href="#">💻 Technology</a></li>
+                <li><a href="#">🏃‍♂️ Fitness & Lifestyle</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 My Personal Blog. Built with Passion. -Asitha_zz-</p>
+    </footer>
+
+</body>
+</html>
